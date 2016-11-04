@@ -10,12 +10,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/tasks', function(req, res, next) {
+	console.log("hello");
 	res.render('index', { title: 'tasks engine' });
 });
 
 router.post('/tasks', function(req, res, next) {
-	console.info("I received some data");
-	console.info(JSON.stringify(req.body));
+	console.log("I received some data");
+	console.log(JSON.stringify(req.body));
 	res.contentType("application/json; charset=UTF-8");
 	try {
 		fs.writeFileSync(__dirname + "/../data/test.json", JSON.stringify(req.body) ,'utf8');
